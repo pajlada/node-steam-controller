@@ -10,10 +10,11 @@ var Touch = require('./components/Touch.js');
 var DPad = require('./components/DPad.js');
 
 var product_id = 0x1142;
+var wired_product_id = 0x1102;
 
 var platforms = {
 	win32: function(dev){
-		return dev.productId == product_id && dev.path.includes('&mi_01');
+		return (dev.productId == wireless_product_id || dev.productId == wired_product_id) && dev.path.includes('&mi_01');
 	},
 	darwin: function(dev){
 		return dev.productId == product_id && dev.path.includes('IOUSBHostInterface@1');
